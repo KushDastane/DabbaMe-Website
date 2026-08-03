@@ -5,6 +5,7 @@ import { LoadingScreen } from '@components/common';
 import { HeroSection } from '@sections/HeroSection';
 import { HowItWorks } from '@sections/HowItWorks';
 import { WhyChooseDabbaMe } from '@sections/WhyChooseDabbaMe';
+import { PlatformExperience } from '@sections/PlatformExperience';
 
 /**
  * HomePage
@@ -40,6 +41,9 @@ export default function HomePage() {
 
           {/* ── Why Choose DabbaMe ────────────────────────────── */}
           <WhyChooseDabbaMe />
+
+          {/* ── One Platform. Two Experiences. ────────────────── */}
+          <PlatformExperience />
 
           {/*
            * ── Future Sections ───────────────────────────────────────
