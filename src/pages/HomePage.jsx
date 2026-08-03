@@ -3,14 +3,13 @@ import { Navbar } from '@components/layout';
 import { Footer } from '@components/layout';
 import { LoadingScreen } from '@components/common';
 import { HeroSection } from '@sections/HeroSection';
+import { HowItWorks } from '@sections/HowItWorks';
 
 /**
  * HomePage
  *
  * The primary marketing page.
  * Assembles: LoadingScreen → Navbar → Sections → Footer
- *
- * Future sections slot in between HeroSection and Footer.
  */
 export default function HomePage() {
   const [loaded, setLoaded] = useState(false);
@@ -35,11 +34,11 @@ export default function HomePage() {
           {/* ── Hero ──────────────────────────────────────────────── */}
           <HeroSection />
 
+          {/* ── How It Works ──────────────────────────────────────── */}
+          <HowItWorks />
+
           {/*
            * ── Future Sections ───────────────────────────────────────
-           * Add sections here as they are built:
-           *
-           * <HowItWorksSection />
            * <FeaturedKitchensSection />
            * <WhyDabbaMeSection />
            * <ForKitchensSection />
