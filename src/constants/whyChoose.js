@@ -22,8 +22,8 @@ export const TAB_CONTENT = {
       label: 'WITHOUT DABBAME',
       tone: 'bad',
       bulletPoints: [
-        'Expensive, unhealthy takeout every day',
-        'Zero control over ingredients or portions',
+        'Expensive, unhealthy food every day',
+        'Zero control over nutrition',
         'No transparency or trust',
       ],
       image: {
@@ -36,8 +36,8 @@ export const TAB_CONTENT = {
       label: 'WITH DABBAME',
       tone: 'good',
       bulletPoints: [
-        'Fresh homemade meals at your doorstep',
-        'Handpicked, verified home kitchens',
+        'Fresh homemade meals',
+        'Verified home kitchens',
         'Healthy, affordable & reliable',
       ],
       image: {
@@ -54,7 +54,7 @@ export const TAB_CONTENT = {
       tone: 'bad',
       bulletPoints: [
         'Manual order tracking via WhatsApp',
-        'Zero visibility into daily earnings',
+        'Handling payments & calculations manually',
         'No professional presence or branding',
       ],
       image: {
@@ -68,7 +68,7 @@ export const TAB_CONTENT = {
       tone: 'good',
       bulletPoints: [
         'Digital dashboard for orders & earnings',
-        'Automatic payments — no cash hassle',
+        'Gain visibility & more discovery',
         'Build a verified, trusted kitchen brand',
       ],
       image: {
