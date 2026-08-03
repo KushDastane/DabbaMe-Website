@@ -4,6 +4,7 @@ import { Footer } from '@components/layout';
 import { LoadingScreen } from '@components/common';
 import { HeroSection } from '@sections/HeroSection';
 import { HowItWorks } from '@sections/HowItWorks';
+import { WhyChooseDabbaMe } from '@sections/WhyChooseDabbaMe';
 
 /**
  * HomePage
@@ -36,6 +37,9 @@ export default function HomePage() {
 
           {/* ── How It Works ──────────────────────────────────────── */}
           <HowItWorks />
+
+          {/* ── Why Choose DabbaMe ────────────────────────────── */}
+          <WhyChooseDabbaMe />
 
           {/*
            * ── Future Sections ───────────────────────────────────────

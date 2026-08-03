@@ -23,7 +23,7 @@ export function HowItWorks() {
   return (
     <Section
       id="how-it-works"
-      className="bg-brand-bg py-16 sm:py-24 md:py-32 overflow-hidden"
+      className="bg-brand-bg pt-10 pb-12 sm:pt-14 sm:pb-16 lg:pt-18 lg:pb-20 overflow-hidden"
     >
       <Container className="max-w-[1280px] flex flex-col gap-12 sm:gap-16 md:gap-20">
 
@@ -61,11 +61,11 @@ export function HowItWorks() {
             whileHover={{ y: -6 }}
             transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            <div className="relative flex items-center justify-center w-full max-w-[340px] sm:max-w-[440px] md:max-w-[480px] mx-auto overflow-visible">
+            <div className="relative flex items-center justify-center w-full max-w-[260px] xs:max-w-[300px] sm:max-w-[420px] md:max-w-[480px] mx-auto -ml-3 xs:-ml-4 sm:ml-auto overflow-visible">
 
               {/* BACK PHONE (-6° rotation, 90% size, starts first) */}
               <motion.div
-                className="relative -mr-12 xs:-mr-14 sm:-mr-20 md:-mr-24 z-0 transform -rotate-6 opacity-95 flex-shrink-0"
+                className="relative -mr-10 xs:-mr-12 sm:-mr-18 md:-mr-24 z-0 transform -rotate-6 opacity-95 flex-shrink-0"
                 initial={{ opacity: 0, y: 40, scale: 0.96 }}
                 whileInView={{ opacity: 0.95, y: 0, scale: 0.9 }}
                 viewport={{ once: true, margin: '-60px' }}
@@ -75,7 +75,7 @@ export function HowItWorks() {
                   src={MOCKUP_IMAGES.discover}
                   alt="DabbaMe Discover Screen"
                   delay={0}
-                  className="w-[150px] xs:w-[175px] sm:w-[220px] md:w-[250px] aspect-[9/19.5]"
+                  className="w-[135px] xs:w-[155px] sm:w-[210px] md:w-[250px] aspect-[9/19.5]"
                 />
               </motion.div>
 
@@ -91,7 +91,7 @@ export function HowItWorks() {
                   src={MOCKUP_IMAGES.kitchenDetails}
                   alt="DabbaMe Kitchen Details Screen"
                   delay={0.15}
-                  className="w-[170px] xs:w-[195px] sm:w-[245px] md:w-[280px] aspect-[9/19.5]"
+                  className="w-[155px] xs:w-[178px] sm:w-[235px] md:w-[280px] aspect-[9/19.5]"
                 />
               </motion.div>
 

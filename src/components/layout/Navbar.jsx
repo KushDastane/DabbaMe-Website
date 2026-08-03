@@ -4,21 +4,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useScrolled } from '@hooks/useScrolled';
 import { NAV_LINKS, NAV_CTA } from '@constants/navigation';
-import { BRAND } from '@constants/brand';
-import { Button } from '@components/ui';
+import { BRAND, APP_STORES } from '@constants/brand';
 import { cn } from '@utils/cn';
 
 /**
  * Navbar
  *
  * Sticky navigation bar with:
- * - Transparent state at top of page
- * - Frosted-glass solid state on scroll
- * - Subtle animated active link indicator
- * - Mobile hamburger menu with slide-down panel
- * - Premium transitions throughout
- *
- * No props required — self-contained.
+ * - Desktop CTA ("Get App" with Play Store icon)
+ * - Mobile hamburger menu containing a clean 44px circular Play Store icon button (no text, no pill)
  */
 export function Navbar() {
   const scrolled   = useScrolled(20);
@@ -96,13 +90,15 @@ export function Navbar() {
           ))}
         </ul>
 
-        {/* ── Desktop CTA ───────────────────────────────────────────── */}
+        {/* ── Desktop CTA ("Get App" with Play Store icon) ────────── */}
         <div className="hidden md:flex items-center">
           <a
-            href={NAV_CTA.href}
+            href={APP_STORES.android}
+            target="_blank"
+            rel="noopener noreferrer"
             id="nav-cta-download"
             className={cn(
-              'inline-flex items-center gap-2.5 px-4 py-2 rounded-full font-medium text-xs tracking-wide transition-all duration-300 shadow-sm',
+              'inline-flex items-center justify-center gap-2.5 pl-4 pr-4 py-2.5 rounded-full font-semibold text-xs tracking-wide transition-all duration-300 shadow-md',
               'hover:shadow-warm hover:-translate-y-0.5 active:translate-y-0',
               scrolled
                 ? 'bg-brand-dark text-white hover:bg-black'
@@ -115,11 +111,11 @@ export function Navbar() {
               <path d="M13.557 12L3.609 21.821c.264.085.556.057.818-.094l12.497-7.2-3.367-2.527z" fill="#FF3333"/>
               <path d="M4.427 2.273C4.165 2.122 3.873 2.094 3.609 2.179L13.557 12l3.367-2.527-12.497-7.2z" fill="#00E676"/>
             </svg>
-            <span>Get App</span>
+            <span>{NAV_CTA.label}</span>
           </a>
         </div>
 
-        {/* ── Mobile Hamburger ──────────────────────────────────────── */}
+        {/* ── Mobile Hamburger Button ───────────────────────────────── */}
         <button
           className={cn(
             'md:hidden p-2 rounded transition-colors duration-200',
@@ -155,7 +151,7 @@ export function Navbar() {
             )}
             aria-label="Mobile navigation"
           >
-            <div className="container-site py-4 flex flex-col gap-1">
+            <div className="container-site py-4 flex flex-col gap-1 items-stretch">
               {/* Nav links */}
               {NAV_LINKS.map(({ id, label, href }) => (
                 <Link
@@ -175,15 +171,19 @@ export function Navbar() {
                 </Link>
               ))}
 
-              {/* Mobile CTA */}
-              <div className="pt-2 pb-1">
+              {/* Mobile Menu CTA — Full pill CTA with Get App text & Play Store icon */}
+              <div className="pt-3 pb-1">
                 <a
-                  href={NAV_CTA.href}
+                  href={APP_STORES.android}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   id="mobile-nav-cta-download"
                   onClick={closeMenu}
                   className={cn(
-                    'w-full flex items-center justify-center gap-2.5 px-4 py-3 rounded-full font-medium text-sm tracking-wide bg-brand-dark text-white shadow-sm hover:bg-black transition-all duration-300'
+                    'w-full flex items-center justify-center gap-2.5 px-5 py-3 rounded-full',
+                    'font-semibold text-sm tracking-wide bg-brand-dark text-white shadow-md hover:bg-black transition-all duration-300 cursor-pointer'
                   )}
+                  aria-label="Get App on Google Play Store"
                 >
                   <svg viewBox="0 0 24 24" className="w-4 h-4 flex-shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3.609 1.814C3.23 2.012 3 2.42 3 2.915v18.17c0 .496.23.903.609 1.101l9.948-10.185L3.609 1.814z" fill="#00A0FF"/>
@@ -191,6 +191,7 @@ export function Navbar() {
                     <path d="M13.557 12L3.609 21.821c.264.085.556.057.818-.094l12.497-7.2-3.367-2.527z" fill="#FF3333"/>
                     <path d="M4.427 2.273C4.165 2.122 3.873 2.094 3.609 2.179L13.557 12l3.367-2.527-12.497-7.2z" fill="#00E676"/>
                   </svg>
+                  <span>Get App</span>
                 </a>
               </div>
             </div>

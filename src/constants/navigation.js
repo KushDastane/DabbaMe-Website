@@ -13,6 +13,6 @@ export const NAV_LINKS = [
 ];
 
 export const NAV_CTA = {
-  label: 'Download App',
+  label: 'Get App',
   href:  '#download',
 };

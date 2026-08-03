@@ -64,10 +64,14 @@ export function VideoHero({
         />
       )}
 
-      {/* ── Dark Overlay ──────────────────────────────────────────── */}
+      {/* ── Dark Overlay (0.42 opacity on mobile for text legibility) ── */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none bg-black/45 sm:bg-transparent"
+      />
+      <div
+        aria-hidden="true"
+        className="hidden sm:block absolute inset-0 pointer-events-none"
         style={{
           background: `linear-gradient(
             to right,
