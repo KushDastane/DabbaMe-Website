@@ -36,13 +36,13 @@ const mobileTabVariants = {
  * - Full Pill Gradient Action Button
  */
 function FeatureCard({ data }) {
-  const { badge, price, title, features, buttonText, buttonHref, showPlayIcon, theme } = data;
+  const { badge, price, title, features, buttonText, buttonTextMobile, buttonHref, showPlayIcon, theme } = data;
 
   return (
     <div
       className={cn(
         'relative flex flex-col justify-between w-full h-full',
-        'p-7 xs:p-8 sm:p-10 rounded-[32px]',
+        'p-5 xs:p-6 sm:p-10 rounded-[24px] sm:rounded-[32px]',
         theme.cardBg,
         theme.cardBorder,
         'shadow-[0_10px_35px_rgba(0,0,0,0.05)]',
@@ -54,7 +54,7 @@ function FeatureCard({ data }) {
       {/* Subtle radial sunburst glow behind ₹0 */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 pointer-events-none opacity-80 rounded-[32px]"
+        className="absolute inset-0 pointer-events-none opacity-80 rounded-[24px] sm:rounded-[32px]"
         style={{
           background: `radial-gradient(circle at 50% 28%, ${theme.glowColor} 0%, transparent 65%)`,
         }}
@@ -65,7 +65,7 @@ function FeatureCard({ data }) {
         {/* ── TOP BADGE ──────────────────────────────────────────────── */}
         <span
           className={cn(
-            'px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-bold tracking-widest uppercase text-center shadow-xs',
+            'px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-bold tracking-widest uppercase text-center shadow-xs',
             theme.badgeBg,
             theme.badgeText
           )}
@@ -74,41 +74,41 @@ function FeatureCard({ data }) {
         </span>
 
         {/* ── MASSIVE CENTERED ₹0 HIGHLIGHT WITH SPARKLES ───────────── */}
-        <div className="relative my-4 sm:my-5 flex items-center justify-center gap-2 sm:gap-3">
+        <div className="relative my-2 sm:my-5 flex items-center justify-center gap-1.5 sm:gap-3">
           {/* Left Sparkle */}
-          <span className={cn('text-xl sm:text-2xl select-none', theme.sparkleColor)}>
+          <span className={cn('text-lg sm:text-2xl select-none', theme.sparkleColor)}>
             ✦
           </span>
 
           {/* Huge ₹0 */}
-          <span className={cn('font-sans font-extrabold text-6xl xs:text-7xl sm:text-8xl tracking-tight leading-none', theme.priceColor)}>
+          <span className={cn('font-sans font-extrabold text-5xl xs:text-6xl sm:text-8xl tracking-tight leading-none', theme.priceColor)}>
             {price}
           </span>
 
           {/* Right Sparkle */}
-          <span className={cn('text-xl sm:text-2xl select-none', theme.sparkleColor)}>
+          <span className={cn('text-lg sm:text-2xl select-none', theme.sparkleColor)}>
             ✦
           </span>
         </div>
 
         {/* ── SUBTITLE (FOREVER FREE / FREE TO JOIN) ────────────────── */}
-        <h3 className={cn('text-base sm:text-lg font-extrabold tracking-[0.14em] uppercase text-center', theme.titleColor)}>
+        <h3 className={cn('text-xs xs:text-sm sm:text-lg font-extrabold tracking-[0.12em] sm:tracking-[0.14em] uppercase text-center', theme.titleColor)}>
           {title}
         </h3>
 
         {/* Divider Line */}
-        <div className="w-full h-px bg-black/5 my-5 sm:my-6" />
+        <div className="w-full h-px bg-black/5 my-3 sm:my-6" />
 
         {/* ── FEATURES LIST ─────────────────────────────────────────── */}
-        <ul className="w-full flex flex-col gap-3 sm:gap-3.5 list-none mb-6 sm:mb-8">
+        <ul className="w-full flex flex-col gap-2 sm:gap-3.5 list-none mb-4 sm:mb-8">
           {features.map((feature, idx) => (
-            <li key={idx} className="flex items-center gap-3">
+            <li key={idx} className="flex items-center gap-2.5 sm:gap-3">
               {/* Green Circle Checkmark */}
-              <span className={cn('w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0', theme.checkStyle)}>
+              <span className={cn('w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center text-[10px] sm:text-xs font-bold flex-shrink-0', theme.checkStyle)}>
                 ✓
               </span>
               {/* Feature text */}
-              <span className="text-sm sm:text-base font-medium text-brand-dark leading-snug">
+              <span className="text-xs xs:text-sm sm:text-base font-medium text-brand-dark leading-snug">
                 {feature}
               </span>
             </li>
@@ -118,24 +118,31 @@ function FeatureCard({ data }) {
       </div>
 
       {/* ── PRIMARY GRADIENT BUTTON ──────────────────────────────────── */}
-      <div className="relative z-10 pt-2">
+      <div className="relative z-10 pt-1 sm:pt-2">
         <a
           href={buttonHref === '#download' ? APP_STORES.android : buttonHref}
           target={buttonHref === '#download' ? '_blank' : '_self'}
           rel={buttonHref === '#download' ? 'noopener noreferrer' : ''}
           className={cn(
-            'w-full inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-full',
-            'font-bold text-base sm:text-lg tracking-tight transition-all duration-300',
+            'w-full inline-flex items-center justify-center gap-2 sm:gap-2.5 py-3 sm:py-4 px-5 sm:px-6 rounded-full',
+            'font-bold text-sm sm:text-lg tracking-tight transition-all duration-300',
             'active:scale-[0.98] cursor-pointer select-none',
             theme.buttonClass
           )}
         >
           {showPlayIcon && (
-            <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0 fill-current" aria-hidden="true">
+            <svg viewBox="0 0 24 24" className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 fill-current" aria-hidden="true">
               <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734c0-.38.214-.725.609-.92zm11.604 11.604l2.586-2.586a.996.996 0 0 0 0-1.414L15.213 6.83l-2.835 2.836 2.835 2.835zM4.735.688l11.45 6.61-2.835 2.835L3.609 1.814A.978.978 0 0 1 4.735.688zM4.735 23.312a.978.978 0 0 1-1.126-1.126l9.741-8.319 2.835 2.835-11.45 6.61z" />
             </svg>
           )}
-          <span>{buttonText}</span>
+          {buttonTextMobile ? (
+            <>
+              <span className="sm:hidden">{buttonTextMobile}</span>
+              <span className="hidden sm:inline">{buttonText}</span>
+            </>
+          ) : (
+            <span>{buttonText}</span>
+          )}
         </a>
       </div>
     </div>

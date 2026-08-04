@@ -9,3 +9,5 @@ export { Badge }     from './Badge';
 export { Container } from './Container';
 export { Heading }   from './Heading';
 export { Section }   from './Section';
+export { TestimonialCard, StarRating } from './TestimonialCard';
+export { TestimonialDeck } from './TestimonialDeck';

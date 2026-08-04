@@ -6,6 +6,7 @@ import { HeroSection } from '@sections/HeroSection';
 import { HowItWorks } from '@sections/HowItWorks';
 import { WhyChooseDabbaMe } from '@sections/WhyChooseDabbaMe';
 import { PlatformExperience } from '@sections/PlatformExperience';
+import { TestimonialsSection } from '@sections/TestimonialsSection';
 
 /**
  * HomePage
@@ -44,6 +45,9 @@ export default function HomePage() {
 
           {/* ── One Platform. Two Experiences. ────────────────── */}
           <PlatformExperience />
+
+          {/* ── Testimonials ───────────────────────────────────── */}
+          <TestimonialsSection />
 
           {/*
            * ── Future Sections ───────────────────────────────────────

@@ -21,7 +21,7 @@ export const CARDS_DATA = {
   customers: {
     badge: 'THE ONLY PLAN YOU NEED',
     price: '₹0',
-    title: 'No Platform fee',
+    title: 'Customers',
     features: [
       'Discover unlimited kitchens',
       "Browse daily menus",
@@ -35,6 +35,7 @@ export const CARDS_DATA = {
       'No hidden charges',
     ],
     buttonText: 'Download DabbaMe',
+    buttonTextMobile: 'Download',
     buttonHref: '#download',
     showPlayIcon: true,
     theme: {
@@ -55,7 +56,7 @@ export const CARDS_DATA = {
   kitchens: {
     badge: 'GROW YOUR KITCHEN BUSINESS',
     price: '₹0',
-    title: 'FREE TO JOIN',
+    title: 'Kitchens',
     features: [
       'Create your kitchen brand',
       'Publish daily menus',
