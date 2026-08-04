@@ -7,6 +7,7 @@ import { HowItWorks } from '@sections/HowItWorks';
 import { WhyChooseDabbaMe } from '@sections/WhyChooseDabbaMe';
 import { PlatformExperience } from '@sections/PlatformExperience';
 import { TestimonialsSection } from '@sections/TestimonialsSection';
+import { FAQSection } from '@sections/FAQSection';
 
 /**
  * HomePage
@@ -49,14 +50,8 @@ export default function HomePage() {
           {/* ── Testimonials ───────────────────────────────────── */}
           <TestimonialsSection />
 
-          {/*
-           * ── Future Sections ───────────────────────────────────────
-           * <FeaturedKitchensSection />
-           * <WhyDabbaMeSection />
-           * <ForKitchensSection />
-           * <TestimonialsSection />
-           * <DownloadAppSection />
-           */}
+          {/* ── Frequently Asked Questions ─────────────────────── */}
+          <FAQSection />
         </main>
 
         {/* Footer */}

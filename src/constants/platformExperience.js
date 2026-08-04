@@ -34,7 +34,7 @@ export const CARDS_DATA = {
       'No ads',
       'No hidden charges',
     ],
-    buttonText: 'Download DabbaMe',
+    buttonText: 'Download',
     buttonTextMobile: 'Download',
     buttonHref: '#download',
     showPlayIcon: true,

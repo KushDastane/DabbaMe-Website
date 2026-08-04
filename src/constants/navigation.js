@@ -8,6 +8,7 @@ export const NAV_LINKS = [
   { id: 'home',         label: 'Home',          href: '/'              },
   { id: 'how-it-works', label: 'How it Works',  href: '/#how-it-works' },
   { id: 'for-kitchens', label: 'For Kitchens',  href: '/#for-kitchens' },
+  { id: 'faq',          label: 'FAQ',           href: '/#faq'          },
   { id: 'about',        label: 'About',          href: '/#about'        },
   { id: 'contact',      label: 'Contact',        href: '/#contact'      },
 ];
