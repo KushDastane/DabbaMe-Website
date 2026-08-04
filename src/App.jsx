@@ -1,29 +1,43 @@
+import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import HomePage from '@pages/HomePage';
-import OurStoryPage from '@pages/OurStoryPage';
-import PrivacyPolicyPage from '@pages/PrivacyPolicyPage';
-import TermsPage from '@pages/TermsPage';
 import { ScrollToTop } from '@components/common/ScrollToTop';
+
+// Code split routes for maximum performance and tree-shaking
+const HomePage = lazy(() => import('@pages/HomePage'));
+const OurStoryPage = lazy(() => import('@pages/OurStoryPage'));
+const PrivacyPolicyPage = lazy(() => import('@pages/PrivacyPolicyPage'));
+const TermsPage = lazy(() => import('@pages/TermsPage'));
+const NotFoundPage = lazy(() => import('@pages/NotFoundPage'));
+
+/**
+ * Route fallback loader
+ */
+function PageLoader() {
+  return (
+    <div className="min-h-screen bg-brand-bg flex items-center justify-center">
+      <div className="w-8 h-8 border-3 border-brand-gold border-t-transparent rounded-full animate-spin" />
+    </div>
+  );
+}
 
 /**
  * App — Root router
- *
- * All top-level routes are defined here.
- * Layouts that wrap multiple pages (e.g. Navbar + Footer)
- * are assembled inside each Page component.
  */
 function App() {
   return (
     <>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/our-story" element={<OurStoryPage />} />
-        <Route path="/story" element={<OurStoryPage />} />
-        <Route path="/about" element={<OurStoryPage />} />
-        <Route path="/privacy" element={<PrivacyPolicyPage />} />
-        <Route path="/terms" element={<TermsPage />} />
-      </Routes>
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/our-story" element={<OurStoryPage />} />
+          <Route path="/story" element={<OurStoryPage />} />
+          <Route path="/about" element={<OurStoryPage />} />
+          <Route path="/privacy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
     </>
   );
 }

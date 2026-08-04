@@ -1,17 +1,17 @@
 import { useEffect } from 'react';
 import { Navbar, Footer } from '@components/layout';
+import { SEO } from '@components/common/SEO';
 import { StoryHero } from '@components/story/StoryHero';
 import { StoryScene } from '@components/story/StoryScene';
 import { SceneConnector } from '@components/story/SceneConnector';
 import { StoryCTA } from '@components/story/StoryCTA';
 import { STORY_SCENES } from '@constants/storyScenes';
+import { ORGANIZATION_SCHEMA, BREADCRUMB_STORY_SCHEMA } from '@constants/seoSchemas';
 
 /**
  * OurStoryPage Component
  *
- * A premium, illustrated storybook page for DabbaMe.
- * Hero section is clean — no dotted line.
- * Individual dotted arrow connectors between each scene (1→2, 2→3 … 8→9).
+ * Illustrated storybook page for DabbaMe.
  */
 export default function OurStoryPage() {
   useEffect(() => {
@@ -19,39 +19,50 @@ export default function OurStoryPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#FCFAF5] text-[#1E1E1E] selection:bg-[#F5B300]/30">
-      <Navbar />
+    <>
+      <SEO
+        title="Our Story | DabbaMe — Built with Hunger & Love"
+        description="Every startup begins with an idea. Ours began with hunger. Learn how Kush and Pranav built DabbaMe to make authentic home food accessible to everyone."
+        keywords="DabbaMe story, founders, home food mission, tiffin app story, Kush Pranav, home kitchen journey"
+        canonical="/our-story"
+        ogImage="/story-01-hero.webp"
+        schemas={[ORGANIZATION_SCHEMA, BREADCRUMB_STORY_SCHEMA]}
+      />
 
-      <main id="main-content" tabIndex={-1}>
-        {/* Hero — clean, no paths */}
-        <StoryHero />
+      <div className="min-h-screen bg-[#FCFAF5] text-[#1E1E1E] selection:bg-[#F5B300]/30">
+        <Navbar />
 
-        {/* Scenes with individual connectors between each pair */}
-        <div className="relative">
-          {STORY_SCENES.map((scene, index) => (
-            <div key={scene.sceneNumber}>
-              <StoryScene
-                sceneNumber={scene.sceneNumber}
-                imageSrc={scene.imageSrc}
-                imageAlt={scene.imageAlt}
-                title={scene.title}
-                paragraphs={scene.paragraphs}
-                reverse={index % 2 !== 0}
-                rotation={scene.rotation}
-              />
+        <main id="main-content" tabIndex={-1}>
+          {/* Hero — clean, no paths */}
+          <StoryHero />
 
-              {/* Arrow connector between this scene and the next */}
-              {index < STORY_SCENES.length - 1 && (
-                <SceneConnector flipX={index % 2 !== 0} />
-              )}
-            </div>
-          ))}
-        </div>
+          {/* Scenes with individual connectors between each pair */}
+          <div className="relative">
+            {STORY_SCENES.map((scene, index) => (
+              <div key={scene.sceneNumber}>
+                <StoryScene
+                  sceneNumber={scene.sceneNumber}
+                  imageSrc={scene.imageSrc}
+                  imageAlt={scene.imageAlt}
+                  title={scene.title}
+                  paragraphs={scene.paragraphs}
+                  reverse={index % 2 !== 0}
+                  rotation={scene.rotation}
+                />
 
-        <StoryCTA />
-      </main>
+                {/* Arrow connector between this scene and the next */}
+                {index < STORY_SCENES.length - 1 && (
+                  <SceneConnector flipX={index % 2 !== 0} />
+                )}
+              </div>
+            ))}
+          </div>
 
-      <Footer />
-    </div>
+          <StoryCTA />
+        </main>
+
+        <Footer />
+      </div>
+    </>
   );
 }
