@@ -7,6 +7,11 @@ export default {
 
   theme: {
     extend: {
+      // ─── Responsive Breakpoints ──────────────────────────────────────────
+      screens: {
+        'xs': '375px',
+      },
+
       // ─── Brand Color Palette ─────────────────────────────────────────────
       colors: {
         brand: {

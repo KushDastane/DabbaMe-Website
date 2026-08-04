@@ -41,17 +41,17 @@ export function PhoneMockup({
 
       {/* Sleek Ultra-Thin Phone Hardware Frame */}
       <div
-        className="relative z-10 rounded-[28px] sm:rounded-[32px] bg-[#1C1C1E] p-1 sm:p-1.5 border border-white/10 overflow-hidden shadow-2xl"
+        className="relative z-10 rounded-[28px] sm:rounded-[32px] bg-[#1A1A1C] p-1 sm:p-1.5 border border-black/25 overflow-hidden"
         style={{
-          boxShadow: '0 20px 48px rgba(0,0,0,0.22), 0 4px 12px rgba(0,0,0,0.12)',
+          boxShadow: '0 24px 50px rgba(0,0,0,0.28), 0 4px 16px rgba(0,0,0,0.15)',
         }}
       >
         {/* Sleek Minimal Punch-Hole Camera Notch */}
         <div
           aria-hidden="true"
-          className="absolute top-2 left-1/2 -translate-x-1/2 z-30 w-8 sm:w-10 h-1.5 sm:h-2 rounded-full bg-black/90 flex items-center justify-center pointer-events-none"
+          className="absolute top-2 left-1/2 -translate-x-1/2 z-30 w-7 sm:w-9 h-1.5 rounded-full bg-black flex items-center justify-center pointer-events-none shadow-sm"
         >
-          <div className="w-1 h-1 rounded-full bg-[#222]" />
+          <div className="w-1 h-1 rounded-full bg-[#1A1A1A]" />
         </div>
 
         {/* Screen Area (9 : 19.5 aspect ratio) */}

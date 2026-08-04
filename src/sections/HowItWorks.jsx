@@ -62,23 +62,23 @@ export function HowItWorks() {
 
               {/* BACK PHONE (Straight, left) */}
               <div
-                className="relative -mr-10 xs:-mr-12 sm:-mr-18 md:-mr-24 z-0 flex-shrink-0"
+                className="relative -mr-10 xs:-mr-12 sm:-mr-18 md:-mr-24 z-0 flex-shrink-0 w-[130px] xs:w-[155px] sm:w-[210px] md:w-[250px]"
               >
                 <PhoneMockup
                   src={MOCKUP_IMAGES.discover}
                   alt="DabbaMe Discover Screen"
-                  className="w-[140px] xs:w-[165px] sm:w-[210px] md:w-[250px] max-w-full drop-shadow-2xl"
+                  className="w-full drop-shadow-2xl"
                 />
               </div>
 
               {/* FRONT PHONE (Straight, vertical, highest z-index) */}
               <div
-                className="relative z-10 flex-shrink-0"
+                className="relative z-10 flex-shrink-0 w-[150px] xs:w-[180px] sm:w-[235px] md:w-[280px]"
               >
                 <PhoneMockup
                   src={MOCKUP_IMAGES.kitchenDetails}
                   alt="DabbaMe Kitchen Details Screen"
-                  className="w-[160px] xs:w-[190px] sm:w-[235px] md:w-[280px] max-w-full drop-shadow-2xl"
+                  className="w-full drop-shadow-2xl"
                 />
               </div>
 
