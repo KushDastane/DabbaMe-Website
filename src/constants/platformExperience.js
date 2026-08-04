@@ -70,8 +70,8 @@ export const CARDS_DATA = {
       '100% direct payouts',
     ],
     buttonText: 'Join as Kitchen',
-    buttonHref: '#for-kitchens',
-    showPlayIcon: false,
+    buttonHref: 'https://play.google.com/store/apps/details?id=com.kushd.dabbame',
+    showPlayIcon: true,
     theme: {
       cardBg: 'bg-[#F9FAF8]',
       cardBorder: 'border-2 border-[#2B7A36]/30 hover:border-[#2B7A36]/60',

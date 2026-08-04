@@ -121,8 +121,8 @@ function FeatureCard({ data }) {
       <div className="relative z-10 pt-1 sm:pt-2">
         <a
           href={buttonHref === '#download' ? APP_STORES.android : buttonHref}
-          target={buttonHref === '#download' ? '_blank' : '_self'}
-          rel={buttonHref === '#download' ? 'noopener noreferrer' : ''}
+          target={buttonHref.startsWith('http') || buttonHref === '#download' ? '_blank' : '_self'}
+          rel={buttonHref.startsWith('http') || buttonHref === '#download' ? 'noopener noreferrer' : ''}
           className={cn(
             'w-full inline-flex items-center justify-center gap-2 sm:gap-2.5 py-3 sm:py-4 px-5 sm:px-6 rounded-full',
             'font-bold text-sm sm:text-lg tracking-tight transition-all duration-300',
@@ -161,7 +161,7 @@ export function PlatformExperience() {
 
   return (
     <Section
-      id="platform-experience"
+      id="for-kitchens"
       className="bg-brand-bg pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-18 lg:pb-24 overflow-hidden"
     >
       <Container className="max-w-[1280px] flex flex-col items-center gap-10 sm:gap-14 md:gap-16">
@@ -175,9 +175,11 @@ export function PlatformExperience() {
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
         >
           {/* Small badge */}
-          <span className="text-label-md font-semibold tracking-[0.18em] uppercase text-[#B57F00] bg-[#FEF2D0] border border-[#F5E5C0] px-3.5 py-1 rounded-full shadow-xs">
-            {PLATFORM_HEADER.badge}
-          </span>
+          {PLATFORM_HEADER.badge && (
+            <span className="text-label-md font-semibold tracking-[0.18em] uppercase text-[#B57F00] bg-[#FEF2D0] border border-[#F5E5C0] px-3.5 py-1 rounded-full shadow-xs">
+              {PLATFORM_HEADER.badge}
+            </span>
+          )}
 
           {/* Heading */}
           <h2 className="w-full text-center font-editorial text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-brand-dark leading-[1.12]">

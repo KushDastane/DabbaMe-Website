@@ -136,8 +136,7 @@ export function Footer() {
             </h3>
             {[
               { label: 'Privacy Policy',    href: '/privacy'    },
-              { label: 'Terms of Service',  href: '/terms'      },
-              { label: 'Cookie Policy',     href: '/cookies'    },
+              { label: 'Terms & Conditions', href: '/terms'     },
             ].map(({ label, href }) => (
               <Link
                 key={href}

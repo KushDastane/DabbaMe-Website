@@ -19,6 +19,6 @@ export const BRAND = {
 };
 
 export const APP_STORES = {
-  apple:   '#',
-  android: '#',
+  apple:   'https://play.google.com/store/apps/details?id=com.kushd.dabbame',
+  android: 'https://play.google.com/store/apps/details?id=com.kushd.dabbame',
 };

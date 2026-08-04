@@ -1,5 +1,5 @@
-import { useState, useCallback } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useState, useCallback, useEffect, useRef } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useScrolled } from '@hooks/useScrolled';
@@ -8,25 +8,114 @@ import { BRAND, APP_STORES } from '@constants/brand';
 import { cn } from '@utils/cn';
 
 /**
- * Navbar
+ * Navbar Component
  *
- * Sticky navigation bar with:
- * - Desktop CTA ("Get App" with Play Store icon)
- * - Mobile hamburger menu containing a clean 44px circular Play Store icon button (no text, no pill)
+ * Sticky navigation bar featuring:
+ * - Silky smooth active underline indicator with scroll-observer lock to prevent glitching during smooth scroll
+ * - Equal text coloring for all nav links
+ * - Smooth section scrolling & mobile menu handling
+ * - Play Store CTA link integration
  */
 export function Navbar() {
-  const scrolled   = useScrolled(20);
+  const scrolled = useScrolled(20);
   const [open, setOpen] = useState(false);
-  const location   = useLocation();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [activeSection, setActiveSection] = useState('hero');
+
+  const isManualScrolling = useRef(false);
+  const scrollTimeoutRef = useRef(null);
 
   const closeMenu = useCallback(() => setOpen(false), []);
 
-  const isLightPage = ['/our-story', '/story', '/about'].includes(location.pathname);
+  const isLightPage = location.pathname !== '/';
   const useDarkText = scrolled || isLightPage;
 
+  const lockScrollObserver = (duration = 900) => {
+    isManualScrolling.current = true;
+    if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+    scrollTimeoutRef.current = setTimeout(() => {
+      isManualScrolling.current = false;
+    }, duration);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+    };
+  }, []);
+
+  // Track active section on the homepage based on scroll position
+  useEffect(() => {
+    if (location.pathname !== '/') return;
+
+    const sections = ['hero', 'how-it-works', 'for-kitchens', 'faq', 'contact'];
+    
+    const handleScroll = () => {
+      // Don't override active section while programmatically smooth-scrolling to a target
+      if (isManualScrolling.current) return;
+
+      const scrollPosition = window.scrollY + 160;
+      
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const sectionId = sections[i];
+        const elem = document.getElementById(sectionId);
+        if (elem) {
+          const top = elem.offsetTop;
+          if (scrollPosition >= top) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [location.pathname]);
+
   const isActive = (href) => {
-    if (href === '/') return location.pathname === '/';
-    return location.pathname === href || location.pathname.startsWith(href.split('#')[0]);
+    if (href === '/') {
+      return location.pathname === '/' && activeSection === 'hero';
+    }
+    if (href.startsWith('/#')) {
+      const targetId = href.replace('/#', '');
+      return location.pathname === '/' && activeSection === targetId;
+    }
+    return location.pathname === href;
+  };
+
+  const handleNavClick = (e, href) => {
+    closeMenu();
+
+    if (href === '/') {
+      if (location.pathname === '/') {
+        e.preventDefault();
+        setActiveSection('hero');
+        lockScrollObserver(800);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.history.pushState(null, '', '/');
+      }
+      return;
+    }
+
+    if (href.startsWith('/#')) {
+      const targetId = href.replace('/#', '');
+      if (location.pathname === '/') {
+        e.preventDefault();
+        const elem = document.getElementById(targetId);
+        if (elem) {
+          setActiveSection(targetId);
+          lockScrollObserver(900);
+          elem.scrollIntoView({ behavior: 'smooth' });
+          window.history.pushState(null, '', `/#${targetId}`);
+        }
+      } else {
+        e.preventDefault();
+        navigate(`/#${targetId}`);
+      }
+    }
   };
 
   return (
@@ -46,7 +135,7 @@ export function Navbar() {
           to="/"
           className="flex items-center gap-2.5 focus-visible:rounded group"
           aria-label={`${BRAND.name} — go to homepage`}
-          onClick={closeMenu}
+          onClick={(e) => handleNavClick(e, '/')}
         >
           <img
             src="/logo.webp"
@@ -69,28 +158,35 @@ export function Navbar() {
           role="list"
           aria-label="Navigation links"
         >
-          {NAV_LINKS.map(({ id, label, href }) => (
-            <li key={id}>
-              <Link
-                to={href}
-                id={`nav-link-${id}`}
-                className={cn(
-                  'link-underline relative px-3 py-2 rounded text-body-sm font-medium',
-                  'transition-colors duration-200',
-                  useDarkText
-                    ? isActive(href)
-                      ? 'text-brand-dark font-semibold'
-                      : 'text-brand-textMuted hover:text-brand-dark'
-                    : isActive(href)
-                    ? 'text-white font-semibold'
-                    : 'text-white/70 hover:text-white'
-                )}
-                aria-current={isActive(href) ? 'page' : undefined}
-              >
-                {label}
-              </Link>
-            </li>
-          ))}
+          {NAV_LINKS.map(({ id, label, href }) => {
+            const active = isActive(href);
+            return (
+              <li key={id}>
+                <Link
+                  to={href}
+                  id={`nav-link-${id}`}
+                  onClick={(e) => handleNavClick(e, href)}
+                  className={cn(
+                    'group relative px-3.5 py-2.5 rounded-lg text-body-sm font-medium transition-colors duration-200 block select-none',
+                    useDarkText ? 'text-brand-dark hover:text-brand-goldAccent' : 'text-white hover:text-white/90'
+                  )}
+                  aria-current={active ? 'page' : undefined}
+                >
+                  <span>{label}</span>
+                  {/* Silky smooth underline indicator */}
+                  <span
+                    className={cn(
+                      'absolute bottom-0 left-3 right-3 h-[2px] rounded-full transition-all duration-300 ease-out origin-center pointer-events-none',
+                      active
+                        ? 'scale-x-100 opacity-100'
+                        : 'scale-x-0 opacity-0 group-hover:scale-x-75 group-hover:opacity-40',
+                      useDarkText ? 'bg-brand-gold' : 'bg-white'
+                    )}
+                  />
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         {/* ── Desktop CTA ("Get App" with Play Store icon) ────────── */}
@@ -156,23 +252,27 @@ export function Navbar() {
           >
             <div className="container-site py-4 flex flex-col gap-1 items-stretch">
               {/* Nav links */}
-              {NAV_LINKS.map(({ id, label, href }) => (
-                <Link
-                  key={id}
-                  to={href}
-                  id={`mobile-nav-link-${id}`}
-                  className={cn(
-                    'px-3 py-3 rounded text-body-md font-medium transition-colors duration-200',
-                    isActive(href)
-                      ? 'text-brand-dark bg-brand-beige'
-                      : 'text-brand-textMuted hover:text-brand-dark hover:bg-brand-beige'
-                  )}
-                  onClick={closeMenu}
-                  aria-current={isActive(href) ? 'page' : undefined}
-                >
-                  {label}
-                </Link>
-              ))}
+              {NAV_LINKS.map(({ id, label, href }) => {
+                const active = isActive(href);
+                return (
+                  <Link
+                    key={id}
+                    to={href}
+                    id={`mobile-nav-link-${id}`}
+                    className={cn(
+                      'relative px-4 py-3 rounded-lg text-body-md font-medium transition-colors duration-200 flex items-center justify-between',
+                      active ? 'text-brand-dark font-semibold bg-brand-beige' : 'text-brand-dark hover:bg-brand-beige/60'
+                    )}
+                    onClick={(e) => handleNavClick(e, href)}
+                    aria-current={active ? 'page' : undefined}
+                  >
+                    <span>{label}</span>
+                    {active && (
+                      <span className="w-2 h-2 rounded-full bg-brand-gold" />
+                    )}
+                  </Link>
+                );
+              })}
 
               {/* Mobile Menu CTA — Full pill CTA with Get App text & Play Store icon */}
               <div className="pt-3 pb-1">

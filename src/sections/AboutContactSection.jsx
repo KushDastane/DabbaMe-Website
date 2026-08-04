@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Section, Container } from '@components/ui';
+import { APP_STORES } from '@constants/brand';
 
 /**
  * AboutContactSection Component
@@ -13,7 +14,7 @@ import { Section, Container } from '@components/ui';
  */
 export function AboutContactSection() {
   return (
-    <Section id="about" className="bg-[#FCFAF5] py-16 sm:py-24 lg:py-28 overflow-hidden">
+    <Section id="contact" className="bg-[#FCFAF5] py-16 sm:py-24 lg:py-28 overflow-hidden">
       <Container className="max-w-[1280px] px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -131,7 +132,9 @@ export function AboutContactSection() {
               {/* Download CTA Button */}
               <div className="pt-2 flex flex-col items-stretch">
                 <a
-                  href="#download"
+                  href={APP_STORES.android}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full bg-[#F5B300] hover:bg-[#E5A500] text-[#1E1E1E] font-bold rounded-xl py-3.5 px-6 flex items-center justify-center gap-3 transition-all duration-200 shadow-xs text-sm sm:text-base"
                 >
                   {/* Google Play store icon */}

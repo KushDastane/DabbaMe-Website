@@ -20,6 +20,7 @@ import { cn } from '@utils/cn';
  *   children       — content rendered above the overlay (left side layout)
  */
 export function VideoHero({
+  id = 'hero',
   src,
   overlayOpacity = 0.12,
   posterSrc,
@@ -42,6 +43,7 @@ export function VideoHero({
 
   return (
     <section
+      id={id}
       className={cn(
         'relative w-full min-h-screen flex items-center overflow-hidden bg-brand-dark',
         className
