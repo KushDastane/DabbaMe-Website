@@ -4,8 +4,8 @@ import { cn } from '@utils/cn';
 /**
  * PhoneMockup Component
  *
- * Fixed, static phone frame (no floating / hovering movement).
- * Renders screens sliding from right to left like native mobile app navigation.
+ * Sleek, thin-bezel phone frame with minimal punch-hole camera.
+ * Renders screens with smooth transitions.
  *
  * Props:
  *   src         — image URL string (e.g. '/customer-screen-1.webp')
@@ -24,37 +24,37 @@ export function PhoneMockup({
   return (
     <div
       className={cn(
-        'relative w-full max-w-[200px] sm:max-w-[215px] md:max-w-[225px] mx-auto select-none flex-shrink-0',
+        'relative w-full select-none flex-shrink-0 mx-auto',
         className
       )}
     >
-      {/* Extremely subtle radial backdrop glow creating depth */}
+      {/* Subtle radial backdrop glow creating depth */}
       <div
         aria-hidden="true"
-        className="absolute -inset-6 sm:-inset-8 rounded-full blur-2xl opacity-80 pointer-events-none z-0"
+        className="absolute -inset-6 sm:-inset-8 rounded-full blur-2xl opacity-70 pointer-events-none z-0"
         style={{
           background: `radial-gradient(circle at 50% 50%, ${glowColor} 0%, transparent 70%)`,
         }}
       />
 
-      {/* Static Phone Hardware Frame (Fixed, no floating/hovering animation) */}
+      {/* Sleek Ultra-Thin Phone Hardware Frame */}
       <div
-        className="relative z-10 rounded-[34px] bg-[#1C1C1E] p-2 sm:p-2.5 border border-white/15 overflow-hidden"
+        className="relative z-10 rounded-[28px] sm:rounded-[32px] bg-[#1C1C1E] p-1 sm:p-1.5 border border-white/10 overflow-hidden shadow-2xl"
         style={{
-          boxShadow: '0 24px 60px rgba(0,0,0,0.28), 0 4px 14px rgba(0,0,0,0.16)',
+          boxShadow: '0 20px 48px rgba(0,0,0,0.22), 0 4px 12px rgba(0,0,0,0.12)',
         }}
       >
-        {/* Dynamic Island Top Notch */}
+        {/* Sleek Minimal Punch-Hole Camera Notch */}
         <div
           aria-hidden="true"
-          className="absolute top-3.5 left-1/2 -translate-x-1/2 z-30 w-20 sm:w-22 h-4 sm:h-4.5 rounded-full bg-black flex items-center justify-end px-2 gap-1 pointer-events-none"
+          className="absolute top-2 left-1/2 -translate-x-1/2 z-30 w-8 sm:w-10 h-1.5 sm:h-2 rounded-full bg-black/90 flex items-center justify-center pointer-events-none"
         >
-          <div className="w-1.5 h-1.5 rounded-full bg-[#222] border border-white/10" />
+          <div className="w-1 h-1 rounded-full bg-[#222]" />
         </div>
 
         {/* Screen Area (9 : 19.5 aspect ratio) */}
         <div
-          className="relative w-full rounded-[26px] overflow-hidden bg-[#121212]"
+          className="relative w-full rounded-[24px] sm:rounded-[28px] overflow-hidden bg-[#121212]"
           style={{ aspectRatio: '9 / 19.5' }}
         >
           <AnimatePresence mode="popLayout" initial={false}>
@@ -70,6 +70,8 @@ export function PhoneMockup({
                 <img
                   src={src}
                   alt={alt}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-top block"
                 />
               ) : (
@@ -86,10 +88,10 @@ export function PhoneMockup({
           />
         </div>
 
-        {/* Physical hardware side buttons */}
-        <div aria-hidden="true" className="absolute -right-px top-20 w-0.5 h-8 rounded-l bg-white/15" />
-        <div aria-hidden="true" className="absolute -left-px top-16 w-0.5 h-6 rounded-r bg-white/15" />
-        <div aria-hidden="true" className="absolute -left-px top-26 w-0.5 h-6 rounded-r bg-white/15" />
+        {/* Minimal hardware side button accents */}
+        <div aria-hidden="true" className="absolute -right-px top-16 w-0.5 h-6 rounded-l bg-white/10" />
+        <div aria-hidden="true" className="absolute -left-px top-14 w-0.5 h-4 rounded-r bg-white/10" />
+        <div aria-hidden="true" className="absolute -left-px top-20 w-0.5 h-4 rounded-r bg-white/10" />
       </div>
     </div>
   );

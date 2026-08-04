@@ -39,7 +39,7 @@ export function StoryHero() {
 
             {/* Paragraph text */}
             <p className="font-sans text-sm sm:text-base text-[#5D554D] leading-relaxed max-w-md">
-              We started DabbaMe with one simple belief:<br />
+              Kush & Pranav started DabbaMe with one simple belief:<br />
               Finding homemade food should be just as easy as ordering online.
             </p>
           </motion.div>

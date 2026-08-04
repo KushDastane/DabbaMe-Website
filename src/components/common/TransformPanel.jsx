@@ -7,16 +7,24 @@ import { cn } from '@utils/cn';
 export function ImageSlot({ image, tone }) {
   const isBad = tone === 'bad';
   const [hasError, setHasError] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   return (
     <div className="w-full h-[210px] xs:h-[240px] sm:h-[280px] md:h-[310px] flex items-center justify-center relative">
+      {!loaded && !hasError && (
+        <div className="absolute inset-4 rounded-2xl bg-brand-beige/60 animate-pulse pointer-events-none" />
+      )}
       {!hasError ? (
         <img
           src={image.src}
           alt={image.alt}
+          loading="lazy"
+          decoding="async"
+          onLoad={() => setLoaded(true)}
           onError={() => setHasError(true)}
           className={cn(
-            'max-w-full max-h-full object-contain select-none pointer-events-none drop-shadow-xl',
+            'max-w-full max-h-full object-contain select-none pointer-events-none drop-shadow-xl transition-opacity duration-300',
+            loaded ? 'opacity-100' : 'opacity-0',
             image.className
           )}
           draggable="false"

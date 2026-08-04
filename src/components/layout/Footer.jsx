@@ -69,6 +69,8 @@ export function Footer() {
               <img
                 src="/logo.webp"
                 alt=""
+                loading="lazy"
+                decoding="async"
                 className="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
               <span className="font-editorial font-medium text-xl tracking-tight text-brand-dark">

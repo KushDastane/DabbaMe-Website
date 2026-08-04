@@ -140,6 +140,9 @@ export function Navbar() {
           <img
             src="/logo.webp"
             alt=""
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
             className="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
           <span

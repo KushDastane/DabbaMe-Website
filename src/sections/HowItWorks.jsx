@@ -11,28 +11,23 @@ import {
 /**
  * HowItWorks Section
  *
- * Apple / Airbnb / Linear style product showcase section.
- * - Desktop: 45% / 55% split layout.
- * - Left: Two overlapping PNG/WebP phone mockups (Back: -6° @ 90%, Front: vertical z-10).
- *   Layered reveal: Back phone starts first, Front phone starts 150ms later.
- * - Right: Three steps housed inside subtle, semi-transparent glass cards.
- * - Responsive: Fully centered and visible without any clipping or text overflow.
+ * Product showcase section featuring overlapping phone mockups and 3 steps.
+ * Responsive: Fully visible and centered on mobile viewports.
  */
-
 export function HowItWorks() {
   return (
     <Section
       id="how-it-works"
       className="bg-brand-bg pt-10 pb-12 sm:pt-14 sm:pb-16 lg:pt-18 lg:pb-20 overflow-hidden"
     >
-      <Container className="max-w-[1280px] flex flex-col gap-12 sm:gap-16 md:gap-20">
+      <Container className="max-w-[1280px] flex flex-col gap-10 sm:gap-16 md:gap-20 px-4 sm:px-6">
 
         {/* ── TOP SECTION HEADER ────────────────────────────────────── */}
         <motion.div
           className="flex flex-col items-center text-center gap-3.5 max-w-[580px] mx-auto px-2"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
         >
           {/* Small uppercase label */}
@@ -55,43 +50,43 @@ export function HowItWorks() {
         {/* ── MAIN LAYOUT: 45% / 55% SPLIT ───────────────────────────── */}
         <div className="flex flex-col lg:flex-row items-center lg:items-center gap-10 sm:gap-14 lg:gap-16 w-full">
 
-          {/* ── LEFT COLUMN (45% DESKTOP): OVERLAPPING PHONES ────────── */}
+          {/* ── LEFT COLUMN: OVERLAPPING PHONES (VISIBLE ON ALL SCREENS) ── */}
           <motion.div
-            className="w-full lg:w-[45%] flex justify-center items-center py-4 px-4 overflow-visible"
-            whileHover={{ y: -6 }}
-            transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+            className="w-full lg:w-[45%] flex justify-center items-center py-2 sm:py-4 px-2 overflow-visible"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            <div className="relative flex items-center justify-center w-full max-w-[260px] xs:max-w-[300px] sm:max-w-[420px] md:max-w-[480px] mx-auto -ml-3 xs:-ml-4 sm:ml-auto overflow-visible">
+            <div className="relative flex items-center justify-center w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[420px] md:max-w-[480px] mx-auto overflow-visible">
 
-              {/* BACK PHONE (-6° rotation, 90% size, starts first) */}
+              {/* BACK PHONE (-6° rotation, starts first) */}
               <motion.div
-                className="relative -mr-10 xs:-mr-12 sm:-mr-18 md:-mr-24 z-0 transform -rotate-6 opacity-95 flex-shrink-0"
-                initial={{ opacity: 0, y: 40, scale: 0.96 }}
-                whileInView={{ opacity: 0.95, y: 0, scale: 0.9 }}
-                viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.9, delay: 0, ease: [0.25, 0.1, 0.25, 1] }}
+                className="relative -mr-8 xs:-mr-10 sm:-mr-18 md:-mr-24 z-0 transform -rotate-6 opacity-95 flex-shrink-0"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 0.95, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
               >
                 <PhoneMockup
                   src={MOCKUP_IMAGES.discover}
                   alt="DabbaMe Discover Screen"
-                  delay={0}
-                  className="w-[135px] xs:w-[155px] sm:w-[210px] md:w-[250px] aspect-[9/19.5]"
+                  className="w-[130px] xs:w-[155px] sm:w-[210px] md:w-[250px] max-w-full"
                 />
               </motion.div>
 
-              {/* FRONT PHONE (Vertical, 100% size, highest z-index, starts +150ms later) */}
+              {/* FRONT PHONE (Vertical, highest z-index) */}
               <motion.div
                 className="relative z-10 flex-shrink-0"
-                initial={{ opacity: 0, y: 40, scale: 0.96 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.9, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
               >
                 <PhoneMockup
                   src={MOCKUP_IMAGES.kitchenDetails}
                   alt="DabbaMe Kitchen Details Screen"
-                  delay={0.15}
-                  className="w-[155px] xs:w-[178px] sm:w-[235px] md:w-[280px] aspect-[9/19.5]"
+                  className="w-[150px] xs:w-[178px] sm:w-[235px] md:w-[280px] max-w-full"
                 />
               </motion.div>
 
