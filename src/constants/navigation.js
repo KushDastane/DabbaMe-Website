@@ -9,7 +9,7 @@ export const NAV_LINKS = [
   { id: 'how-it-works', label: 'How it Works',  href: '/#how-it-works' },
   { id: 'for-kitchens', label: 'For Kitchens',  href: '/#for-kitchens' },
   { id: 'faq',          label: 'FAQ',           href: '/#faq'          },
-  { id: 'about',        label: 'About',          href: '/#about'        },
+  { id: 'our-story',    label: 'Our Story',     href: '/our-story'     },
   { id: 'contact',      label: 'Contact',        href: '/#contact'      },
 ];
 

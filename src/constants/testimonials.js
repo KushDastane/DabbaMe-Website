@@ -45,7 +45,7 @@ export const CUSTOMER_TESTIMONIALS = [
       'Switching kitchens anytime without monthly locks is fantastic..',
     name: 'Pushpak K.',
     role: 'Working Professional',
-    location: 'Wakad, Pune',
+    location: 'Pune',
     screen: CUSTOMER_SCREENS[1],
   },
   {
@@ -55,7 +55,7 @@ export const CUSTOMER_TESTIMONIALS = [
       'I couldn’t imagine that we had so many home kitchens nearby..DabbaMe helped me discover them.',
     name: 'Varsha D.',
     role: 'Senior Citizen',
-    location: 'Kothrud, Pune',
+    location: 'Pune',
     screen: CUSTOMER_SCREENS[2],
   },
   {
@@ -65,7 +65,7 @@ export const CUSTOMER_TESTIMONIALS = [
       'Smooth experience, super helpful.',
     name: 'Priya S.',
     role: 'Software Engineer',
-    location: 'Baner, Pune',
+    location: 'Pune',
     screen: CUSTOMER_SCREENS[3],
   },
   {

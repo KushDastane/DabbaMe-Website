@@ -21,16 +21,19 @@ export function Navbar() {
 
   const closeMenu = useCallback(() => setOpen(false), []);
 
+  const isLightPage = ['/our-story', '/story', '/about'].includes(location.pathname);
+  const useDarkText = scrolled || isLightPage;
+
   const isActive = (href) => {
     if (href === '/') return location.pathname === '/';
-    return location.pathname.startsWith(href.split('#')[0]);
+    return location.pathname === href || location.pathname.startsWith(href.split('#')[0]);
   };
 
   return (
     <header
       className={cn(
         'navbar-base',
-        scrolled ? 'navbar-solid' : 'navbar-transparent'
+        scrolled ? 'navbar-solid' : isLightPage ? 'bg-transparent py-4' : 'navbar-transparent'
       )}
       role="banner"
     >
@@ -53,7 +56,7 @@ export function Navbar() {
           <span
             className={cn(
               'font-editorial font-medium text-xl tracking-tight transition-colors duration-300',
-              scrolled ? 'text-brand-dark' : 'text-white'
+              useDarkText ? 'text-brand-dark' : 'text-white'
             )}
           >
             Dabba<span className="text-brand-goldAccent">Me</span>
@@ -74,12 +77,12 @@ export function Navbar() {
                 className={cn(
                   'link-underline relative px-3 py-2 rounded text-body-sm font-medium',
                   'transition-colors duration-200',
-                  scrolled
+                  useDarkText
                     ? isActive(href)
-                      ? 'text-brand-dark'
+                      ? 'text-brand-dark font-semibold'
                       : 'text-brand-textMuted hover:text-brand-dark'
                     : isActive(href)
-                    ? 'text-white'
+                    ? 'text-white font-semibold'
                     : 'text-white/70 hover:text-white'
                 )}
                 aria-current={isActive(href) ? 'page' : undefined}
@@ -100,7 +103,7 @@ export function Navbar() {
             className={cn(
               'inline-flex items-center justify-center gap-2.5 pl-4 pr-4 py-2.5 rounded-full font-semibold text-xs tracking-wide transition-all duration-300 shadow-md',
               'hover:shadow-warm hover:-translate-y-0.5 active:translate-y-0',
-              scrolled
+              useDarkText
                 ? 'bg-brand-dark text-white hover:bg-black'
                 : 'bg-white text-brand-dark hover:bg-brand-goldAccent'
             )}
@@ -120,7 +123,7 @@ export function Navbar() {
           className={cn(
             'md:hidden p-2 rounded transition-colors duration-200',
             'focus-visible:outline-2 focus-visible:outline-brand-gold',
-            scrolled
+            useDarkText
               ? 'text-brand-dark hover:bg-brand-beige'
               : 'text-white hover:bg-white/10'
           )}

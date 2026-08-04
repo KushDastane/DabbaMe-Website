@@ -8,6 +8,7 @@ import { WhyChooseDabbaMe } from '@sections/WhyChooseDabbaMe';
 import { PlatformExperience } from '@sections/PlatformExperience';
 import { TestimonialsSection } from '@sections/TestimonialsSection';
 import { FAQSection } from '@sections/FAQSection';
+import { AboutContactSection } from '@sections/AboutContactSection';
 
 /**
  * HomePage
@@ -52,6 +53,9 @@ export default function HomePage() {
 
           {/* ── Frequently Asked Questions ─────────────────────── */}
           <FAQSection />
+
+          {/* ── Our Story & Contact ────────────────────────────── */}
+          <AboutContactSection />
         </main>
 
         {/* Footer */}
