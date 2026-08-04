@@ -74,7 +74,7 @@ export function WhyChooseDabbaMe() {
           className="w-full flex flex-col items-center justify-center text-center gap-3 max-w-[620px] mx-auto px-2"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
         >
           {/* Small uppercase label */}

@@ -29,7 +29,7 @@ export const TAB_CONTENT = {
       image: {
         src: '/images/whychoose/customer-before.webp',
         alt: 'Unhealthy junk food — burger, cola, chips and instant noodles',
-        className: 'customer-before-placeholder',
+        className: 'scale-[0.92] sm:scale-100 origin-center',
       },
     },
     with: {
@@ -43,7 +43,7 @@ export const TAB_CONTENT = {
       image: {
         src: '/images/whychoose/customer-after.webp',
         alt: 'Healthy homemade meal — stainless steel tiffin with dal, rice, rotis and salad',
-        className: 'customer-after-placeholder',
+        className: 'scale-[0.92] sm:scale-100 origin-center',
       },
     },
   },
@@ -74,7 +74,7 @@ export const TAB_CONTENT = {
       image: {
         src: '/images/whychoose/kitchen-after.webp',
         alt: 'Kitchen dashboard — digital orders, analytics and daily khata',
-        className: 'kitchen-after-placeholder',
+        className: 'scale-[0.92] sm:scale-100 origin-center',
       },
     },
   },

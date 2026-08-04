@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { cn } from '@utils/cn';
 
 /**
@@ -7,24 +7,36 @@ import { cn } from '@utils/cn';
 export function ImageSlot({ image, tone }) {
   const isBad = tone === 'bad';
   const [hasError, setHasError] = useState(false);
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(true);
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    if (imgRef.current) {
+      if (imgRef.current.complete && imgRef.current.naturalWidth > 0) {
+        setLoaded(true);
+      }
+    }
+  }, [image?.src]);
+
+  if (!image || !image.src) return null;
 
   return (
-    <div className="w-full h-[210px] xs:h-[240px] sm:h-[280px] md:h-[310px] flex items-center justify-center relative">
+    <div className="w-full h-[220px] xs:h-[250px] sm:h-[280px] md:h-[310px] flex items-center justify-center relative shrink-0 my-1">
       {!loaded && !hasError && (
-        <div className="absolute inset-4 rounded-2xl bg-brand-beige/60 animate-pulse pointer-events-none" />
+        <div className="absolute inset-2 rounded-2xl bg-brand-beige/60 animate-pulse pointer-events-none" />
       )}
       {!hasError ? (
         <img
+          ref={imgRef}
           src={image.src}
-          alt={image.alt}
-          loading="lazy"
+          alt={image.alt || ''}
+          loading="eager"
           decoding="async"
           onLoad={() => setLoaded(true)}
           onError={() => setHasError(true)}
           className={cn(
-            'max-w-full max-h-full object-contain select-none pointer-events-none drop-shadow-xl transition-opacity duration-300',
-            loaded ? 'opacity-100' : 'opacity-0',
+            'max-w-full max-h-full object-contain select-none pointer-events-none drop-shadow-xl transition-opacity duration-200 block mx-auto',
+            loaded ? 'opacity-100' : 'opacity-90',
             image.className
           )}
           draggable="false"

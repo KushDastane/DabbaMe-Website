@@ -13,6 +13,7 @@ import { cn } from '@utils/cn';
  *   alt         — image description
  *   glowColor   — rgba or hex string for subtle radial backdrop glow
  *   className   — extra class overrides
+ *   animated    — set to true when animating between slide transitions
  */
 export function PhoneMockup({
   src,
@@ -20,6 +21,7 @@ export function PhoneMockup({
   alt = 'DabbaMe App Screen',
   glowColor = 'rgba(245,179,0,0.14)',
   className,
+  animated = false,
 }) {
   return (
     <div
@@ -57,29 +59,44 @@ export function PhoneMockup({
           className="relative w-full rounded-[24px] sm:rounded-[28px] overflow-hidden bg-[#121212]"
           style={{ aspectRatio: '9 / 19.5' }}
         >
-          <AnimatePresence mode="popLayout" initial={false}>
-            <motion.div
-              key={`${activeIndex}-${src || 'empty'}`}
-              initial={{ x: '100%' }}
-              animate={{ x: '0%' }}
-              exit={{ x: '-100%' }}
-              transition={{ duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
-              className="absolute inset-0 w-full h-full"
-            >
+          {animated ? (
+            <AnimatePresence mode="popLayout" initial={false}>
+              <motion.div
+                key={`${activeIndex}-${src || 'empty'}`}
+                initial={{ x: '100%' }}
+                animate={{ x: '0%' }}
+                exit={{ x: '-100%' }}
+                transition={{ duration: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
+                className="absolute inset-0 w-full h-full"
+              >
+                {src ? (
+                  <img
+                    src={src}
+                    alt={alt}
+                    loading="eager"
+                    decoding="async"
+                    className="w-full h-full object-cover object-top block"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-b from-[#1A1A1E] via-[#121215] to-[#0A0A0C]" />
+                )}
+              </motion.div>
+            </AnimatePresence>
+          ) : (
+            <div className="absolute inset-0 w-full h-full">
               {src ? (
                 <img
                   src={src}
                   alt={alt}
-                  loading="lazy"
+                  loading="eager"
                   decoding="async"
                   className="w-full h-full object-cover object-top block"
                 />
               ) : (
-                /* Sleek, clean minimal dark display when image is loading / empty */
                 <div className="w-full h-full bg-gradient-to-b from-[#1A1A1E] via-[#121215] to-[#0A0A0C]" />
               )}
-            </motion.div>
-          </AnimatePresence>
+            </div>
+          )}
 
           {/* Glass gloss highlight */}
           <div
