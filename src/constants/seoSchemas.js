@@ -35,11 +35,6 @@ export const WEBSITE_SCHEMA = {
   '@type': 'WebSite',
   name: SITE.name,
   url: SITE.url,
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: `${SITE.url}/?s={search_term_string}`,
-    'query-input': 'required name=search_term_string',
-  },
 };
 
 export const SOFTWARE_APPLICATION_SCHEMA = {
