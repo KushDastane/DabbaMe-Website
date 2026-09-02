@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { ScrollToTop } from '@components/common/ScrollToTop';
 
 // Code split routes for maximum performance and tree-shaking
@@ -34,7 +34,8 @@ function App() {
           <Route path="/story" element={<OurStoryPage />} />
           <Route path="/about" element={<OurStoryPage />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />
-          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/terms-and-conditions" element={<TermsPage />} />
+          <Route path="/terms" element={<Navigate to="/terms-and-conditions" replace />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>

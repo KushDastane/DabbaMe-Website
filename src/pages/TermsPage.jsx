@@ -16,7 +16,7 @@ export default function TermsPage() {
       <SEO
         title="Terms & Conditions | DabbaMe"
         description="These terms describe the expectations, responsibilities, and platform rules for customers and kitchen partners using DabbaMe."
-        canonical="/terms"
+        canonical="/terms-and-conditions"
         schemas={[ORGANIZATION_SCHEMA]}
       />
 
