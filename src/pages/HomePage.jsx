@@ -5,6 +5,7 @@ import { SEO } from '@components/common/SEO';
 import { HeroSection } from '@sections/HeroSection';
 import { HowItWorks } from '@sections/HowItWorks';
 import { WhyChooseDabbaMe } from '@sections/WhyChooseDabbaMe';
+import { RecognitionSection } from '@sections/RecognitionSection';
 import { PlatformExperience } from '@sections/PlatformExperience';
 import { TestimonialsSection } from '@sections/TestimonialsSection';
 import { FAQSection } from '@sections/FAQSection';
@@ -66,6 +67,9 @@ export default function HomePage() {
 
           {/* ── Why Choose DabbaMe ────────────────────────────── */}
           <WhyChooseDabbaMe />
+
+          {/* ── Recognition & Milestones ─────────────────────── */}
+          <RecognitionSection />
 
           {/* ── One Platform. Two Experiences. ────────────────── */}
           <PlatformExperience />

@@ -11,3 +11,4 @@ export { Heading }   from './Heading';
 export { Section }   from './Section';
 export { TestimonialCard, StarRating } from './TestimonialCard';
 export { TestimonialDeck } from './TestimonialDeck';
+export { MilestoneCard }   from './MilestoneCard';
