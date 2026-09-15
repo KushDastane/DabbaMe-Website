@@ -4,18 +4,21 @@ import { cn } from '@utils/cn';
  * LaurelBranch
  * Bold, classical golden laurel branch with plump leaves matching reference design.
  */
-function LaurelBranch({ flip = false }) {
+function LaurelBranch({ flip = false, className }) {
   return (
     <svg
       viewBox="0 -10 65 120"
       fill="none"
       className={cn(
-        'w-10 sm:w-12 h-20 sm:h-24 text-[#C88A2C] select-none flex-shrink-0 overflow-visible',
-        flip && 'scale-x-[-1]'
+        'w-6 xs:w-7 sm:w-10 md:w-12 h-12 xs:h-14 sm:h-20 md:h-24 text-[#C88A2C] select-none flex-shrink-0',
+        className
       )}
       aria-hidden="true"
     >
-      <g fill="currentColor">
+      <g
+        fill="currentColor"
+        transform={flip ? 'translate(65, 0) scale(-1, 1)' : undefined}
+      >
         {/* Curved stem */}
         <path
           d="M 50 88 C 16 78, 8 30, 28 2"
@@ -73,7 +76,7 @@ export function MilestoneCard({ milestone, className }) {
     <article
       className={cn(
         'relative flex flex-col justify-between items-center text-center w-full h-full',
-        'p-6 sm:p-7 md:p-8 rounded-[24px] sm:rounded-[28px]',
+        'p-5 xs:p-6 sm:p-7 md:p-8 rounded-[22px] sm:rounded-[28px]',
         'bg-white/95 border border-brand-border/80',
         'shadow-[0_4px_20px_rgba(45,45,45,0.04)]',
         'hover:shadow-[0_10px_32px_rgba(245,179,0,0.12)] hover:-translate-y-1',
@@ -85,7 +88,7 @@ export function MilestoneCard({ milestone, className }) {
       {/* Subtle ambient warm glow in header area */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 rounded-[24px] sm:rounded-[28px] pointer-events-none opacity-40"
+        className="absolute inset-0 rounded-[22px] sm:rounded-[28px] pointer-events-none opacity-40"
         style={{
           background: 'radial-gradient(ellipse at 50% 15%, rgba(245,179,0,0.09) 0%, transparent 60%)',
         }}
@@ -93,12 +96,12 @@ export function MilestoneCard({ milestone, className }) {
 
       <div className="relative z-10 flex flex-col items-center w-full">
         {/* ── TOP EMBLEM / LOGO FRAMED TIGHTLY BY BOLD GOLDEN LAUREL WREATH ────── */}
-        <div className="relative inline-flex items-center justify-center gap-1 sm:gap-2 py-1 mx-auto">
+        <div className="relative inline-flex items-center justify-center gap-1 xs:gap-1.5 sm:gap-2 py-1 mx-auto max-w-full">
           {/* Left Laurel Branch */}
           <LaurelBranch />
 
-          {/* Official Organization / Event Logo — Larger & Snugly Framed */}
-          <div className="flex items-center justify-center min-h-[64px] sm:min-h-[76px] px-1">
+          {/* Official Organization / Event Logo — reduced on phones so laurels sit in place */}
+          <div className="flex items-center justify-center min-h-[38px] xs:min-h-[44px] sm:min-h-[64px] md:min-h-[76px] px-1 shrink min-w-0">
             {logo ? (
               <img
                 src={logo}
@@ -106,13 +109,13 @@ export function MilestoneCard({ milestone, className }) {
                 className={cn(
                   'w-auto object-contain transition-transform duration-300 group-hover:scale-105 select-none',
                   id === 'ieee-eif-2026'
-                    ? 'h-13 sm:h-16 max-w-[155px] sm:max-w-[185px]'
-                    : 'h-13 sm:h-16 max-w-[150px] sm:max-w-[180px]'
+                    ? 'h-8 xs:h-9 sm:h-14 md:h-16 max-w-[95px] xs:max-w-[115px] sm:max-w-[165px] md:max-w-[185px]'
+                    : 'h-8 xs:h-9 sm:h-14 md:h-16 max-w-[90px] xs:max-w-[110px] sm:max-w-[160px] md:max-w-[180px]'
                 )}
                 loading="lazy"
               />
             ) : (
-              <span className="font-sans font-extrabold text-sm sm:text-base tracking-[0.16em] text-brand-dark/85 uppercase">
+              <span className="font-sans font-extrabold text-xs xs:text-sm sm:text-base tracking-[0.14em] text-brand-dark/85 uppercase truncate">
                 {organization}
               </span>
             )}
@@ -124,7 +127,7 @@ export function MilestoneCard({ milestone, className }) {
           {/* Golden 4-point star at bottom center */}
           <div
             aria-hidden="true"
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1 text-[#C88A2C] text-sm leading-none select-none"
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-0.5 sm:translate-y-1 text-[#C88A2C] text-xs sm:text-sm leading-none select-none"
           >
             ✦
           </div>

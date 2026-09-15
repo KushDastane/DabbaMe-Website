@@ -120,6 +120,7 @@ export function RecognitionSection({
     <Section
       id="recognition"
       aria-label="Recognition and milestones"
+      noContainer
       className={cn(
         'bg-brand-bg py-10 sm:py-14 lg:py-16 overflow-hidden select-none',
         className
@@ -157,7 +158,7 @@ export function RecognitionSection({
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch justify-center"
+              className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 items-stretch justify-center w-full"
             >
               {milestones.map((milestone, idx) => (
                 <motion.div
