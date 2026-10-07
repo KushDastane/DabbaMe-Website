@@ -6,7 +6,7 @@
  * updates canonical URLs, Open Graph, Twitter Cards, JSON-LD schemas, and previews
  * across the entire application.
  */
-const DEFAULT_SITE_URL = 'https://dabbame.netlify.app';
+const DEFAULT_SITE_URL = 'https://dabbame.com';
 
 export const SITE = {
   name: 'DabbaMe',
