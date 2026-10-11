@@ -4,6 +4,7 @@ import { ScrollToTop } from '@components/common/ScrollToTop';
 
 // Code split routes for maximum performance and tree-shaking
 const HomePage = lazy(() => import('@pages/HomePage'));
+const LocationsPage = lazy(() => import('@pages/LocationsPage'));
 const OurStoryPage = lazy(() => import('@pages/OurStoryPage'));
 const PrivacyPolicyPage = lazy(() => import('@pages/PrivacyPolicyPage'));
 const TermsPage = lazy(() => import('@pages/TermsPage'));
@@ -30,6 +31,8 @@ function App() {
       <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/locations" element={<LocationsPage />} />
+          <Route path="/network" element={<Navigate to="/locations" replace />} />
           <Route path="/our-story" element={<OurStoryPage />} />
           <Route path="/story" element={<OurStoryPage />} />
           <Route path="/about" element={<OurStoryPage />} />

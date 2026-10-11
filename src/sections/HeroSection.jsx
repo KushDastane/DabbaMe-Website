@@ -138,7 +138,7 @@ export function HeroSection() {
               <div className="flex items-center gap-1.5 text-white/80">
                 <Star size={14} className="fill-brand-gold text-brand-gold" aria-hidden="true" />
                 <span className="text-body-xs font-medium text-white/90">
-                  4.8 · Loved by 500+ customers
+                  4.0 · Loved by 1000+ customers
                 </span>
               </div>
 

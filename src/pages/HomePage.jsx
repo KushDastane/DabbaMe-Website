@@ -4,6 +4,7 @@ import { LoadingScreen } from '@components/common';
 import { SEO } from '@components/common/SEO';
 import { HeroSection } from '@sections/HeroSection';
 import { HowItWorks } from '@sections/HowItWorks';
+import { NetworkLocationsSection } from '@sections/NetworkLocationsSection';
 import { WhyChooseDabbaMe } from '@sections/WhyChooseDabbaMe';
 import { RecognitionSection } from '@sections/RecognitionSection';
 import { PlatformExperience } from '@sections/PlatformExperience';
@@ -25,7 +26,28 @@ import {
  * Assembles SEO → LoadingScreen → Navbar → Sections → Footer
  */
 export default function HomePage() {
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return (
+        Boolean(window.__dabbameInitialLoaded) ||
+        Boolean(window.location.hash) ||
+        Boolean(sessionStorage.getItem('dabbame_splash_shown'))
+      );
+    }
+    return false;
+  });
+
+  const handleSplashComplete = () => {
+    if (typeof window !== 'undefined') {
+      window.__dabbameInitialLoaded = true;
+      try {
+        sessionStorage.setItem('dabbame_splash_shown', 'true');
+      } catch {
+        // storage disabled or unavailable
+      }
+    }
+    setLoaded(true);
+  };
 
   return (
     <>
@@ -48,7 +70,7 @@ export default function HomePage() {
       {!loaded && (
         <LoadingScreen
           duration={1400}
-          onComplete={() => setLoaded(true)}
+          onComplete={handleSplashComplete}
         />
       )}
 
@@ -64,6 +86,9 @@ export default function HomePage() {
 
           {/* ── How It Works ──────────────────────────────────────── */}
           <HowItWorks />
+
+          {/* ── Our Growing Network ───────────────────────────────── */}
+          <NetworkLocationsSection />
 
           {/* ── Why Choose DabbaMe ────────────────────────────── */}
           <WhyChooseDabbaMe />
