@@ -1,7 +1,7 @@
 /**
  * StateMonumentSvg
  *
- * Coherent set of 9 original vector landmark illustrations celebrating the cultural
+ * Coherent set of 12 original vector landmark illustrations celebrating the cultural
  * and architectural heritage of each state in DabbaMe's kitchen network:
  *
  * 1. Maharashtra: Gateway of India
@@ -13,6 +13,9 @@
  * 7. West Bengal: Howrah Bridge
  * 8. Odisha: Konark Sun Temple / Sun Wheel
  * 9. Haryana: Kurukshetra Chariot & Temple Pavilion
+ * 10. Karnataka: Mysore Palace
+ * 11. Madhya Pradesh: Sanchi Stupa
+ * 12. Rajasthan: Hawa Mahal
  *
  * Palette: DabbaMe gold (#F5B300), warm yellow (#E0A106), terracotta/amber (#D97706),
  * cream (#FFF9EB), and dark navy (#1E1E1E).
@@ -441,6 +444,159 @@ export function StateMonumentSvg({ stateId, illustration, className = 'w-full h-
           <line x1="48" y1="23" x2="48" y2="25" stroke="#D97706" strokeWidth="1.25" strokeLinecap="round" />
           <line x1="41" y1="18" x2="43" y2="18" stroke="#D97706" strokeWidth="1.25" strokeLinecap="round" />
           <line x1="53" y1="18" x2="55" y2="18" stroke="#D97706" strokeWidth="1.25" strokeLinecap="round" />
+        </svg>
+      );
+
+    // ── 10. KARNATAKA: Mysore Palace ───────────────────────────────
+    case 'mysore-palace':
+    case 'karnataka':
+      return (
+        <svg
+          viewBox="0 0 64 64"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={className}
+          role="img"
+          aria-label="Mysore Palace illustration for Karnataka"
+        >
+          {/* Base foundation plinth */}
+          <rect x="6" y="54" width="52" height="4" rx="1" fill="#1E1E1E" />
+          <rect x="9" y="50" width="46" height="4" fill="#E0A106" stroke="#1E1E1E" strokeWidth="1.5" />
+
+          {/* Main palace lower facade */}
+          <rect x="11" y="32" width="42" height="18" fill="#FFF9EB" stroke="#1E1E1E" strokeWidth="1.75" />
+
+          {/* Arched arcade openings */}
+          <path d="M14 50V41C14 39 16 37.5 17.5 37.5C19 37.5 21 39 21 41V50" stroke="#1E1E1E" strokeWidth="1.25" fill="#E0A106" />
+          <path d="M26 50V37C26 33.7 28.7 31 32 31C35.3 31 38 33.7 38 37V50" fill="#F5B300" stroke="#1E1E1E" strokeWidth="1.5" />
+          <path d="M43 50V41C43 39 45 37.5 46.5 37.5C48 37.5 50 39 50 41V50" stroke="#1E1E1E" strokeWidth="1.25" fill="#E0A106" />
+
+          {/* Middle balcony frieze & railing */}
+          <rect x="10" y="28" width="44" height="4" fill="#F5B300" stroke="#1E1E1E" strokeWidth="1.5" />
+          <line x1="12" y1="30" x2="52" y2="30" stroke="#1E1E1E" strokeWidth="1" strokeDasharray="2 1.5" />
+
+          {/* Central Durbar tower */}
+          <rect x="24" y="20" width="16" height="8" fill="#FFF9EB" stroke="#1E1E1E" strokeWidth="1.5" />
+          <path d="M29 28V24C29 22.5 30.5 21 32 21C33.5 21 35 22.5 35 24V28" fill="#F5B300" stroke="#1E1E1E" strokeWidth="1" />
+
+          {/* Central majestic dome */}
+          <path d="M23 20C23 12 32 8 32 8C32 8 41 12 41 20Z" fill="#D97706" stroke="#1E1E1E" strokeWidth="1.75" />
+          <path d="M26 18C28 15 36 15 38 18" stroke="#F5B300" strokeWidth="1.25" />
+          <line x1="32" y1="8" x2="32" y2="4" stroke="#1E1E1E" strokeWidth="1.5" strokeLinecap="round" />
+          <circle cx="32" cy="5" r="1.5" fill="#F5B300" stroke="#1E1E1E" strokeWidth="0.75" />
+
+          {/* Left corner tower & chattri */}
+          <rect x="11" y="21" width="6" height="7" fill="#E0A106" stroke="#1E1E1E" strokeWidth="1.25" />
+          <path d="M10 21C10 16 14 13 14 13C14 13 18 16 18 21Z" fill="#F5B300" stroke="#1E1E1E" strokeWidth="1.25" />
+          <line x1="14" y1="13" x2="14" y2="10" stroke="#1E1E1E" strokeWidth="1.25" strokeLinecap="round" />
+
+          {/* Right corner tower & chattri */}
+          <rect x="47" y="21" width="6" height="7" fill="#E0A106" stroke="#1E1E1E" strokeWidth="1.25" />
+          <path d="M46 21C46 16 50 13 50 13C50 13 54 16 54 21Z" fill="#F5B300" stroke="#1E1E1E" strokeWidth="1.25" />
+          <line x1="50" y1="13" x2="50" y2="10" stroke="#1E1E1E" strokeWidth="1.25" strokeLinecap="round" />
+        </svg>
+      );
+
+    // ── 11. MADHYA PRADESH: Sanchi Stupa ───────────────────────────
+    case 'sanchi-stupa':
+    case 'madhya-pradesh':
+      return (
+        <svg
+          viewBox="0 0 64 64"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={className}
+          role="img"
+          aria-label="Sanchi Stupa illustration for Madhya Pradesh"
+        >
+          {/* Base foundation plinth */}
+          <rect x="6" y="54" width="52" height="4" rx="1" fill="#1E1E1E" />
+
+          {/* Raised stone terrace (Medhi) */}
+          <rect x="10" y="49" width="44" height="5" fill="#E0A106" stroke="#1E1E1E" strokeWidth="1.5" />
+          <line x1="10" y1="51.5" x2="54" y2="51.5" stroke="#1E1E1E" strokeWidth="1" strokeDasharray="3 2" />
+
+          {/* Hemispherical mound (Anda) */}
+          <path d="M13 49C13 25 51 25 51 49Z" fill="#FFF9EB" stroke="#1E1E1E" strokeWidth="1.75" />
+          <path d="M17 41C21 35 43 35 47 41" stroke="#F5B300" strokeWidth="1.5" strokeDasharray="3 2" />
+
+          {/* Harmika (Square railing balcony at apex) */}
+          <rect x="27" y="19" width="10" height="5" fill="#F5B300" stroke="#1E1E1E" strokeWidth="1.5" />
+          <line x1="30.5" y1="19" x2="30.5" y2="24" stroke="#1E1E1E" strokeWidth="1" />
+          <line x1="33.5" y1="19" x2="33.5" y2="24" stroke="#1E1E1E" strokeWidth="1" />
+
+          {/* Chhatravali (Three-tiered sacred umbrella disc spires) */}
+          <line x1="32" y1="19" x2="32" y2="6" stroke="#1E1E1E" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M25 16H39" stroke="#D97706" strokeWidth="2" strokeLinecap="round" />
+          <path d="M27 12H37" stroke="#D97706" strokeWidth="2" strokeLinecap="round" />
+          <path d="M29 8H35" stroke="#D97706" strokeWidth="2" strokeLinecap="round" />
+          <circle cx="32" cy="6" r="1" fill="#1E1E1E" />
+
+          {/* Torana (Ceremonial gateway) in foreground */}
+          <rect x="22" y="36" width="3.5" height="18" fill="#D97706" stroke="#1E1E1E" strokeWidth="1.25" />
+          <rect x="38.5" y="36" width="3.5" height="18" fill="#D97706" stroke="#1E1E1E" strokeWidth="1.25" />
+          <path d="M18 36H46" stroke="#1E1E1E" strokeWidth="2.5" strokeLinecap="round" />
+          <path d="M19 40H45" stroke="#1E1E1E" strokeWidth="2" strokeLinecap="round" />
+          <path d="M20 44H44" stroke="#1E1E1E" strokeWidth="1.75" strokeLinecap="round" />
+          <path d="M25.5 54V46C25.5 44 38.5 44 38.5 46V54" fill="#F5B300" stroke="#1E1E1E" strokeWidth="1.25" />
+          <circle cx="32" cy="33" r="2.5" fill="#F5B300" stroke="#1E1E1E" strokeWidth="1" />
+        </svg>
+      );
+
+    // ── 12. RAJASTHAN: Hawa Mahal ──────────────────────────────────
+    case 'hawa-mahal':
+    case 'rajasthan':
+      return (
+        <svg
+          viewBox="0 0 64 64"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={className}
+          role="img"
+          aria-label="Hawa Mahal illustration for Rajasthan"
+        >
+          {/* Base foundation plinth */}
+          <rect x="6" y="54" width="52" height="4" rx="1" fill="#1E1E1E" />
+          <rect x="9" y="50" width="46" height="4" fill="#E0A106" stroke="#1E1E1E" strokeWidth="1.5" />
+
+          {/* Level 1 (Bottom tier) */}
+          <rect x="12" y="43" width="40" height="7" fill="#FFF9EB" stroke="#1E1E1E" strokeWidth="1.5" />
+          <path d="M15 50V46C15 44.5 17 44.5 17 46V50" fill="#D97706" stroke="#1E1E1E" strokeWidth="1" />
+          <path d="M24 50V46C24 44.5 26 44.5 26 46V50" fill="#F5B300" stroke="#1E1E1E" strokeWidth="1" />
+          <path d="M38 50V46C38 44.5 40 44.5 40 46V50" fill="#F5B300" stroke="#1E1E1E" strokeWidth="1" />
+          <path d="M47 50V46C47 44.5 49 44.5 49 46V50" fill="#D97706" stroke="#1E1E1E" strokeWidth="1" />
+
+          {/* Level 2 (Middle tier) & chajja */}
+          <path d="M14 43H50" stroke="#1E1E1E" strokeWidth="1.75" strokeLinecap="round" />
+          <rect x="16" y="35" width="32" height="8" fill="#FFF9EB" stroke="#1E1E1E" strokeWidth="1.5" />
+          <path d="M19 43V38C19 36.5 22 36.5 22 38V43" fill="#F5B300" stroke="#1E1E1E" strokeWidth="1" />
+          <path d="M30 43V37C30 35.5 34 35.5 34 37V43" fill="#D97706" stroke="#1E1E1E" strokeWidth="1.25" />
+          <path d="M42 43V38C42 36.5 45 36.5 45 38V43" fill="#F5B300" stroke="#1E1E1E" strokeWidth="1" />
+
+          {/* Level 3 & chajja */}
+          <path d="M18 35H46" stroke="#1E1E1E" strokeWidth="1.75" strokeLinecap="round" />
+          <rect x="20" y="27" width="24" height="8" fill="#FFF9EB" stroke="#1E1E1E" strokeWidth="1.5" />
+          <path d="M23 35V30C23 28.5 26 28.5 26 30V35" fill="#D97706" stroke="#1E1E1E" strokeWidth="1" />
+          <path d="M30 35V29C30 27.5 34 27.5 34 29V35" fill="#F5B300" stroke="#1E1E1E" strokeWidth="1.25" />
+          <path d="M38 35V30C38 28.5 41 28.5 41 30V35" fill="#D97706" stroke="#1E1E1E" strokeWidth="1" />
+
+          {/* Stepped side chattris on level 3 */}
+          <path d="M16 35V31C16 29 19 29 19 31V35" fill="#E0A106" stroke="#1E1E1E" strokeWidth="1.25" />
+          <path d="M45 35V31C45 29 48 29 48 31V35" fill="#E0A106" stroke="#1E1E1E" strokeWidth="1.25" />
+
+          {/* Level 4 & chajja */}
+          <path d="M22 27H42" stroke="#1E1E1E" strokeWidth="1.75" strokeLinecap="round" />
+          <rect x="24" y="19" width="16" height="8" fill="#FFF9EB" stroke="#1E1E1E" strokeWidth="1.5" />
+          <path d="M30 27V22C30 20.5 34 20.5 34 22V27" fill="#D97706" stroke="#1E1E1E" strokeWidth="1.25" />
+
+          {/* Stepped side chattris on level 4 */}
+          <path d="M20 27V23C20 21 23 21 23 23V27" fill="#E0A106" stroke="#1E1E1E" strokeWidth="1.25" />
+          <path d="M41 27V23C41 21 44 21 44 23V27" fill="#E0A106" stroke="#1E1E1E" strokeWidth="1.25" />
+
+          {/* Top Crown Tier (Mukut & Finial) */}
+          <path d="M25 19H39" stroke="#1E1E1E" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M27 19C27 11 32 8 32 8C32 8 37 11 37 19Z" fill="#F5B300" stroke="#1E1E1E" strokeWidth="1.5" />
+          <line x1="32" y1="8" x2="32" y2="4" stroke="#1E1E1E" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
       );
 

@@ -92,4 +92,26 @@ export const KITCHEN_TESTIMONIALS = [
     location: 'Loni, Pune',
     screen: KITCHEN_SCREENS[0],
   },
+  {
+    id: 'kitch-2',
+    rating: 4.5,
+    isVerified: true,
+    kitchenName: 'Tiffin Tales',
+    review:
+      'Our experience with DabbaMe has been excellent! It is a thoughtful and convenient platform that helps home kitchens reach more customers. We truly appreciate the team’s efforts and look forward to joining the DabbaMe community in Mumbai soon!',
+    role: 'Home Kitchen Owner',
+    location: 'Mumbai, Maharashtra',
+    screen: KITCHEN_SCREENS[1],
+  },
+  {
+    id: 'kitch-3',
+    rating: 5,
+    isVerified: true,
+    kitchenName: 'Eat Fit & Repeat',
+    review:
+      'Thank you for introducing us to such a wonderful platform! DabbaMe is genuinely helpful for home kitchens like ours. We really appreciate the initiative and the effort your team is putting into making things easier for kitchen owners.',
+    role: 'Home Kitchen Owner',
+    location: 'Kolkata, West Bengal',
+    screen: KITCHEN_SCREENS[2],
+  },
 ];

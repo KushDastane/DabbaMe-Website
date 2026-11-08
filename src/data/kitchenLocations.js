@@ -17,9 +17,9 @@
  */
 
 export const networkStats = {
-  kitchenPartners: '20+',
-  statesAndTerritories: '9',
-  citiesAndLocalities: '15+',
+  kitchenPartners: '40+',
+  statesAndTerritories: '12',
+  citiesAndLocalities: '25+',
 };
 
 export const networkStatsList = [
@@ -53,6 +53,9 @@ export const stateNamesList = [
   'West Bengal',
   'Odisha',
   'Haryana',
+  'Karnataka',
+  'Madhya Pradesh',
+  'Rajasthan',
 ];
 
 export const kitchenLocations = [
@@ -63,22 +66,19 @@ export const kitchenLocations = [
     landmarkName: 'Gateway of India',
     cities: [
       {
-        name: 'Mumbai',
-        kitchenCount: 2,
-        localities: [
-          'Dahisar East',
-          'Powai, Chandivali, Sangharsh Nagar',
-        ],
+        name: 'Akola',
+        kitchenCount: 1,
+        localities: ['Kaulkhed'],
       },
       {
-        name: 'Navi Mumbai',
+        name: 'Kadamwak Wasti',
         kitchenCount: 1,
-        localities: ['Vashi'],
+        localities: ['Riddhi Park Lane 2'],
       },
       {
         name: 'Kalyan',
-        kitchenCount: 1,
-        localities: ['DB Chowk'],
+        kitchenCount: 2,
+        localities: ['Dombivli East', 'DB Chowk, Kalyan West'],
       },
       {
         name: 'Khoni Pagadyacha Pada',
@@ -87,20 +87,36 @@ export const kitchenLocations = [
       },
       {
         name: 'Loni Kalbhor',
-        kitchenCount: 1,
-        // Locality not reliably specified in original record; kept empty to avoid inventing names
-        localities: [],
-        note: 'Near MIT ADT University',
+        kitchenCount: 2,
+        localities: [
+          'Opp. Yamunai Hospital',
+          'Rahinji Nagar, near MIT ADT',
+        ],
       },
       {
         name: 'Majgaon',
         kitchenCount: 1,
-        localities: ['Near the Gram Panchayat'],
+        localities: ['Near Gram Panchayat, Majgav Sawantwadi'],
       },
       {
-        name: 'Kadamwak Wasti',
+        name: 'Mumbai',
+        kitchenCount: 4,
+        localities: [
+          'Powai, Chandivali, Sangharsh Nagar',
+          'Andheri West',
+          'Byculla',
+          'Dahisar East',
+        ],
+      },
+      {
+        name: 'Navi Mumbai',
+        kitchenCount: 3,
+        localities: ['Vashi', 'Ghansoli', 'Seawoods'],
+      },
+      {
+        name: 'New Khasala',
         kitchenCount: 1,
-        localities: ['Riddhi Park Lane 2'],
+        localities: ['Kamptee Road'],
       },
       {
         name: 'Pimpri-Chinchwad',
@@ -108,9 +124,14 @@ export const kitchenLocations = [
         localities: ['Moshi'],
       },
       {
-        name: 'New Khasala',
+        name: 'Thane',
         kitchenCount: 1,
-        localities: ['Kamptee Road'],
+        localities: ['Mumbra'],
+      },
+      {
+        name: 'Ulhasnagar',
+        kitchenCount: 1,
+        localities: ['Ulhasnagar 4'],
       },
     ],
   },
@@ -122,11 +143,17 @@ export const kitchenLocations = [
     cities: [
       {
         name: 'Ahmedabad',
-        kitchenCount: 2,
+        kitchenCount: 3,
         localities: [
           'Shilaj, near Vraj Residency',
+          'Bapunagar',
           'Vejalpur',
         ],
+      },
+      {
+        name: 'Mehsana',
+        kitchenCount: 1,
+        localities: ['Ram Lakhan Society'],
       },
     ],
   },
@@ -136,6 +163,11 @@ export const kitchenLocations = [
     illustration: 'india-gate',
     landmarkName: 'India Gate',
     cities: [
+      {
+        name: 'Delhi',
+        kitchenCount: 1,
+        localities: ['Kadipur'],
+      },
       {
         name: 'New Delhi',
         kitchenCount: 1,
@@ -153,6 +185,11 @@ export const kitchenLocations = [
         name: 'Ghaziabad',
         kitchenCount: 1,
         localities: ['Sahibabad'],
+      },
+      {
+        name: 'Kanpur',
+        kitchenCount: 1,
+        localities: ['Bingawan'],
       },
       {
         name: 'Lucknow',
@@ -195,8 +232,8 @@ export const kitchenLocations = [
     cities: [
       {
         name: 'Kolkata',
-        kitchenCount: 1,
-        localities: ['Kasba'],
+        kitchenCount: 2,
+        localities: ['Ward Number 59', 'Kasba'],
       },
       {
         name: 'South Dumdum',
@@ -225,9 +262,58 @@ export const kitchenLocations = [
     landmarkName: 'Kurukshetra Chariot & Brahma Sarovar',
     cities: [
       {
+        name: 'Manesar',
+        kitchenCount: 1,
+        localities: ['Sector 76'],
+      },
+      {
         name: 'Panipat',
         kitchenCount: 1,
         localities: ['Vikas Nagar'],
+      },
+    ],
+  },
+  {
+    id: 'karnataka',
+    name: 'Karnataka',
+    illustration: 'mysore-palace',
+    landmarkName: 'Mysore Palace',
+    cities: [
+      {
+        name: 'Hosapete',
+        kitchenCount: 1,
+        localities: ['Jambunatha Road'],
+      },
+    ],
+  },
+  {
+    id: 'madhya-pradesh',
+    name: 'Madhya Pradesh',
+    illustration: 'sanchi-stupa',
+    landmarkName: 'Sanchi Stupa',
+    cities: [
+      {
+        name: 'Indore',
+        kitchenCount: 1,
+        localities: ['Patni Pura'],
+      },
+    ],
+  },
+  {
+    id: 'rajasthan',
+    name: 'Rajasthan',
+    illustration: 'hawa-mahal',
+    landmarkName: 'Hawa Mahal',
+    cities: [
+      {
+        name: 'Jaipur',
+        kitchenCount: 1,
+        localities: ['Sunder Nagar'],
+      },
+      {
+        name: 'Rawatsar',
+        kitchenCount: 1,
+        localities: ['Rawasar'],
       },
     ],
   },
